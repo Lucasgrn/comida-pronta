@@ -24,15 +24,21 @@ O "FoodReady" é uma solução abrangente e eficaz para melhorar a eficiência e
 
 Esse projeto está sendo desenvolvido por:
 
-Kauan Victório Novello de Souza -  
+Kauan Novello -  
 
 Lucas Gabriel - 
 
 # Ferramentas
 
-Trello: https://easypdv.atlassian.net/jira/software/projects/EP/boards/1/backlog
+Trello: 
 
-Figma: https://www.figma.com/file/L4wsHpCyzswN1dpXPZfnpe/Prancha-Principal?node-id=0-1&t=wlwz17dQFPAbZac2-0
+Figma: 
+
+Discord:
+
+# Tecnologias Escolhidas
+
+Html, Css, Js, Node, React, Express.js, PostgreSQL, Prisma, AWS(Deploy)
 
 # Testes automatizados
 
