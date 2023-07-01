@@ -38,7 +38,7 @@ Discord:
 
 # Tecnologias Escolhidas
 
-Html, Css, Js, Node, React, Express.js, PostgreSQL, Prisma, AWS(Deploy)
+Html5, Css3, Js, React, Next.js, Node, Express.js, PostgreSQL, Prisma, Vercel(Deploy)
 
 # Testes automatizados
 
