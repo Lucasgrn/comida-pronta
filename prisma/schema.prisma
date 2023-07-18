@@ -16,6 +16,42 @@ model Product {
   updatedAt DateTime @default(now())
   name      String
   price     Float
+  Storage   Storage  @relation(fields: [storageId], references: [id])
+  storageId Int
 
   @@map("products")
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  User      User     @relation(fields: [userId], references: [id])
+  userId    Int
+
+  @@map("orders")
+}
+
+model Storage {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+  User      User?
+  Product   Product[]
+
+  @@map("storages")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  name      String
+  username  String   @unique
+  password  String
+  Order     Order[]
+  Storage   Storage? @relation(fields: [storageId], references: [id])
+  storageId Int      @unique
+
+  @@map("users")
 }
