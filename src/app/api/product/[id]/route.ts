@@ -3,7 +3,7 @@ import { prisma } from "../../../../../prisma/prisma";
 import { Product } from "@prisma/client";
 export async function PUT(req: Request, { params }: { params: { id: string } }) {
   const id: number = parseInt(params.id)
-  const { name, price }: { name: string, price: number } = await req.json()
+  const { name, price }: Product = await req.json()
   try {
     const product = await prisma.product.update({
       where: {

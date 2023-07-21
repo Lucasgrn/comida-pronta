@@ -2,12 +2,13 @@ import { NextResponse } from "next/server";
 import { Product } from "@prisma/client";
 import { prisma } from "../../../../prisma/prisma";
 export async function POST(req: Request) {
-  const { name, price }: { name: string, price: number } = await req.json()
+  const { name, price, storageId }: Product = await req.json()
   try {
-    const product: Product = await prisma.product.create({
+    const product = await prisma.product.create({
       data: {
         name,
-        price
+        price,
+        storageId
       }
     })
     return NextResponse.json(product, { status: 200 })
