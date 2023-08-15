@@ -11,25 +11,49 @@ datasource db {
 }
 
 model Product {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  id        Int                @id @default(autoincrement())
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @default(now())
   name      String
   price     Float
-  Storage   Storage  @relation(fields: [storageId], references: [id])
+  Storage   Storage            @relation(fields: [storageId], references: [id])
   storageId Int
+  quantity  Int
+  orders    ProductsOnOrders[]
 
   @@map("products")
 }
 
 model Order {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  User      User     @relation(fields: [userId], references: [id])
-  userId    Int
+  id         Int                @id @default(autoincrement())
+  createdAt  DateTime           @default(now())
+  updatedAt  DateTime           @default(now())
+  User       User               @relation(fields: [userId], references: [id])
+  userId     Int
+  products   ProductsOnOrders[]
+  number     Int
+  clientName String
+  status     Status             @default(received)
+  total      Float
 
   @@map("orders")
+}
+
+enum Status {
+  received
+  preparing
+  done
+  delivered
+  canceled
+}
+
+model ProductsOnOrders {
+  id        Int     @id @default(autoincrement())
+  Product   Product @relation(fields: [productId], references: [id])
+  productId Int
+  quantity  Int
+  Order     Order   @relation(fields: [orderId], references: [id])
+  orderId   Int
 }
 
 model Storage {
