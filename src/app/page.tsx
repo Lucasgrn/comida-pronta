@@ -1,4 +1,5 @@
 "use client"
+import Input from '@/components/Input';
 import { api } from '@/services/axios'
 import { useRouter } from 'next/navigation';
 import { setCookie } from 'nookies';
@@ -24,13 +25,24 @@ export default function Login() {
   }
   return (
     <>
-      <form onSubmit={handleSubmit(handleSignIn)}>
-        <label htmlFor='username'>Username:</label>
-        <input type="text" placeholder='Username' id='username' {...register('username')}></input><br />
-        <label htmlFor='password'>Senha</label>
-        <input type='password' placeholder='Senha' id='password' {...register('password')} ></input><br />
-        <button type='submit' >Logar</button>
-      </form >
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: "#94ebeb",
+        borderRadius: 10,
+        width: '50%',
+        height: '25%'
+      }}>
+        <form onSubmit={handleSubmit(handleSignIn)} style={{
+          display: 'flex',
+        }}>
+          <label htmlFor='username'>Username:</label>
+          <Input type="text" placeholder='Username' id='username' {...register('username')} /><br />
+          <label htmlFor='password'>Senha:</label>
+          <Input type='password' placeholder='Senha' id='password' {...register('password')} /><br />
+          <button type='submit' >Logar</button>
+        </form >
+      </div>
     </>
   )
 }
